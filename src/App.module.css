@@ -1,6 +1,6 @@
 .container {
   position: relative;
-  background-color: var(--off-white);
+  background-color: var(--light-grey);
   min-height: 100svh;
   overflow: hidden;
   background-image: url("./assets/pattern-background-mobile-light.svg");
