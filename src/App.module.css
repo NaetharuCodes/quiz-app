@@ -1,0 +1,18 @@
+.container {
+  position: relative;
+  background-color: var(--off-white);
+  min-height: 100svh;
+  overflow: hidden;
+}
+
+.bgImageContainer {
+  position: relative;
+  height: 100svh;
+}
+
+.bgImageContainer img {
+  max-width: 100%;
+  max-height: 100%;
+  min-height: 100%;
+  object-fit: contain;
+}
