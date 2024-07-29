@@ -3,9 +3,11 @@
   z-index: 2;
   margin-top: 16px;
 }
+
 .container p {
   font-size: 18px;
 }
+
 .accessabilityIcon {
   background-color: #f6e7ff;
   padding: 12px;
@@ -42,6 +44,29 @@
   left: 5px;
   height: 20px;
   width: 20px;
+  font-size: 18px;
+  background-color: white;
+}
+
+.darkModeBtn::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: var(--purple);
+  border-radius: 50px;
+  transition: background-color 0.3s ease;
+}
+
+.darkModeBtn::after {
+  position: absolute;
+  content: "";
+  top: 5px;
+  left: 5px;
+  height: 20px;
+  width: 20px;
   background-color: var(--white);
   border-radius: 50px;
   transition: transform 0.3s ease;
@@ -49,4 +74,20 @@
 
 .darkModeBtn.active::after {
   transform: translateX(20px);
+}
+
+@media only screen and (min-width: 768px) {
+  .container {
+    margin-top: 40px;
+  }
+
+  .container p {
+    font-size: 28px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .container {
+    margin-top: 83px;
+  }
 }
