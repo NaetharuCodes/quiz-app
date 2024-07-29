@@ -9,3 +9,17 @@
   padding-left: 24px;
   padding-right: 24px;
 }
+
+@media only screen and (min-width: 768px) {
+  .container {
+    padding-left: 64px;
+    padding-right: 64px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .container {
+    padding-left: 140px;
+    padding-right: 140px;
+  }
+}
