@@ -8,6 +8,10 @@
   font-size: 18px;
 }
 
+:global(body.dark-mode) .container p {
+  color: white;
+}
+
 .accessabilityIcon {
   background-color: #f6e7ff;
   padding: 12px;

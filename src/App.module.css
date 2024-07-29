@@ -1,6 +1,6 @@
 .container {
   position: relative;
-  background-color: var(--off-white);
+  background-color: var(--light-grey);
   min-height: 100svh;
   overflow: hidden;
   background-image: url("./assets/pattern-background-mobile-light.svg");
@@ -10,10 +10,24 @@
   padding-right: 24px;
 }
 
+:global(body.dark-mode) .container {
+  background-color: black;
+  background-image: url("./assets/pattern-background-mobile-dark.svg");
+}
+
 @media only screen and (min-width: 768px) {
   .container {
     padding-left: 64px;
     padding-right: 64px;
+    background-image: url("./assets//pattern-background-tablet-light.svg");
+    background-size: 50% auto;
+  }
+
+  :global(body.dark-mode) .container {
+    padding-left: 64px;
+    padding-right: 64px;
+    background-image: url("./assets//pattern-background-tablet-dark.svg");
+    background-size: 50% auto;
   }
 }
 
@@ -21,5 +35,14 @@
   .container {
     padding-left: 140px;
     padding-right: 140px;
+    background-image: url("./assets//pattern-background-desktop-light.svg");
+    background-size: 100% 100%;
+  }
+
+  :global(body.dark-mode) .container {
+    padding-left: 140px;
+    padding-right: 140px;
+    background-image: url("./assets//pattern-background-desktop-dark.svg");
+    background-size: 100% 100%;
   }
 }

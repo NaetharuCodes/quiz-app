@@ -1,16 +1,26 @@
+import { useEffect } from "react";
 import styles from "./App.module.css";
-import mbBgLight from "./assets/pattern-background-mobile-light.svg";
 import Header from "./components/Header/Header";
+import { useTheme } from "./contexts/ThemeContext";
 
-function App() {
+const App = () => {
+  const { darkMode } = useTheme();
+
+  useEffect(() => {
+    console.log(darkMode);
+
+    if (darkMode) {
+      document.body.classList.add("dark-mode");
+    } else {
+      document.body.classList.remove("dark-mode");
+    }
+  }, [darkMode]);
+
   return (
     <div className={styles.container}>
-      {/* <div className={styles.bgImageContainer}>
-        <img src={mbBgLight} alt="background pattern" />
-      </div> */}
       <Header />
     </div>
   );
-}
+};
 
 export default App;

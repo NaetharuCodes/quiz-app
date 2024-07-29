@@ -1,17 +1,13 @@
-import { useState } from "react";
 import styles from "./Header.module.css";
 import accessabilityImg from "../../assets/icon-accessibility.svg";
 import sunIcon from "../../assets/icon-sun-dark.svg";
 import moonIcon from "../../assets/icon-moon-dark.svg";
 import darkSun from "../../assets/icon-sun-light.svg";
 import darkMoon from "../../assets/icon-moon-light.svg";
+import { useTheme } from "../../contexts/ThemeContext";
 
 const Header = () => {
-  const [isDarkMode, setIsDarkMode] = useState(false);
-
-  const toggleDarkMode = () => {
-    setIsDarkMode(!isDarkMode);
-  };
+  const { darkMode, toggleDarkMode } = useTheme();
 
   return (
     <div
@@ -27,13 +23,13 @@ const Header = () => {
         <p>Accessibility</p>
       </div>
       <div className="flex-row items-center justify-between">
-        <img src={isDarkMode ? darkSun : sunIcon} alt="sun icon" />
+        <img src={darkMode ? darkSun : sunIcon} alt="sun icon" />
         <button
-          className={`${styles.darkModeBtn} ${isDarkMode ? styles.active : ""}`}
+          className={`${styles.darkModeBtn} ${darkMode ? styles.active : ""}`}
           onClick={toggleDarkMode}
           aria-label="Toggle dark mode"
         />
-        <img src={isDarkMode ? darkMoon : moonIcon} alt="moon icon" />
+        <img src={darkMode ? darkMoon : moonIcon} alt="moon icon" />
       </div>
     </div>
   );
