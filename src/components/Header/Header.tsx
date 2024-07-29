@@ -14,12 +14,13 @@ const Header = () => {
       className={`flex-row justify-between items-center ${styles.container}`}
     >
       <div className="flex-row items-center justify-start">
-        <img src="" alt="" />
-        <img
-          className={styles.accessabilityIcon}
-          src={accessabilityImg}
-          alt="accessability icon"
-        />
+        <div className={styles.iconContainer}>
+          <img
+            className={styles.accessabilityIcon}
+            src={accessabilityImg}
+            alt="accessability icon"
+          />
+        </div>
         <p>Accessibility</p>
       </div>
       <div className="flex-row items-center justify-between">

@@ -12,11 +12,17 @@
   color: white;
 }
 
-.accessabilityIcon {
+.iconContainer {
+  width: 40px;
+  height: 40px;
+  padding: 5px;
+  display: flex;
   background-color: #f6e7ff;
-  padding: 12px;
-  border-radius: 4px;
   margin-right: 16px;
+  border-radius: 4px;
+}
+
+.accessabilityIcon {
 }
 
 .darkModeBtn {
