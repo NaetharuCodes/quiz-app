@@ -1,6 +1,8 @@
 import { useState } from "react";
 import styles from "./Header.module.css";
 import accessabilityImg from "../../assets/icon-accessibility.svg";
+import sunIcon from "../../assets/icon-sun-dark.svg";
+import moonIcon from "../../assets/icon-moon-dark.svg";
 
 const Header = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -21,11 +23,15 @@ const Header = () => {
         />
         <p>Accessibility</p>
       </div>
-      <button
-        className={`${styles.darkModeBtn} ${isDarkMode ? styles.active : ""}`}
-        onClick={toggleDarkMode}
-        aria-label="Toggle dark mode"
-      />
+      <div className="flex-row items-center justify-between">
+        <img src={sunIcon} alt="sun icon" />
+        <button
+          className={`${styles.darkModeBtn} ${isDarkMode ? styles.active : ""}`}
+          onClick={toggleDarkMode}
+          aria-label="Toggle dark mode"
+        />
+        <img src={moonIcon} alt="moon icon" />
+      </div>
     </div>
   );
 };
