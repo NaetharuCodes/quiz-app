@@ -3,16 +3,9 @@
   background-color: var(--off-white);
   min-height: 100svh;
   overflow: hidden;
-}
-
-.bgImageContainer {
-  position: relative;
-  height: 100svh;
-}
-
-.bgImageContainer img {
-  max-width: 100%;
-  max-height: 100%;
-  min-height: 100%;
-  object-fit: contain;
+  background-image: url("./assets/pattern-background-mobile-light.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding-left: 24px;
+  padding-right: 24px;
 }
