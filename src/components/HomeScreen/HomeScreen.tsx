@@ -7,13 +7,15 @@ import SelectionButton from "../SelectionButton/SelectionButton";
 
 const HomeScreen = () => {
   return (
-    <>
-      <h1 className={styles.title}>
-        Welcome to the <span>Frontend Quiz!</span>
-      </h1>
-      <p className={styles.subtitle}>
-        <em>Pick a subject to get started!</em>
-      </p>
+    <div className={styles.container}>
+      <div className={styles.titleContainer}>
+        <h1 className={styles.title}>
+          Welcome to the <span>Frontend Quiz!</span>
+        </h1>
+        <p className={styles.subtitle}>
+          <em>Pick a subject to get started!</em>
+        </p>
+      </div>
       <div className={styles.buttonContainer}>
         <SelectionButton
           icon={htmlIcon}
@@ -40,7 +42,7 @@ const HomeScreen = () => {
           onClick={() => {}}
         />
       </div>
-    </>
+    </div>
   );
 };
 
