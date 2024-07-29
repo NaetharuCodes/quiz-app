@@ -1,0 +1,22 @@
+.title {
+  font-size: 40px;
+  font-weight: 300;
+  margin-bottom: 8px;
+}
+
+.title span {
+  font-weight: 500;
+}
+
+.subtitle {
+  font-weight: 400;
+  font-size: 14px;
+  font-style: italic;
+  color: var(--grey-navy);
+}
+
+.buttonContainer {
+  display: flex;
+  flex-direction: column;
+  margin-top: 40px;
+}

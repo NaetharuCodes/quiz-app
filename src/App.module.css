@@ -8,6 +8,13 @@
   background-repeat: no-repeat;
   padding-left: 24px;
   padding-right: 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.contentContainer {
+  flex-grow: 1;
+  margin-top: 32px;
 }
 
 :global(body.dark-mode) .container {

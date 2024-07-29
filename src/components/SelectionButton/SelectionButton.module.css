@@ -1,0 +1,19 @@
+.button {
+  padding: 12px;
+  border: none;
+  margin-bottom: 12px;
+  border-radius: 12px;
+  background: white;
+  font-size: 18px;
+  color: var(--dark-navy);
+  font-weight: 500;
+}
+
+.imgContainer {
+  height: 40px;
+  width: 40px;
+  padding: 5px;
+  display: flex;
+  margin-right: 6px;
+  border-radius: 6px;
+}

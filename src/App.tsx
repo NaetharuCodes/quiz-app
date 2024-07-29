@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import styles from "./App.module.css";
 import Header from "./components/Header/Header";
 import { useTheme } from "./contexts/ThemeContext";
+import HomeScreen from "./components/Header/HomeScreen/HomeScreen";
 
 const App = () => {
   const { darkMode } = useTheme();
@@ -19,6 +20,9 @@ const App = () => {
   return (
     <div className={styles.container}>
       <Header />
+      <div className={styles.contentContainer}>
+        <HomeScreen />
+      </div>
     </div>
   );
 };
