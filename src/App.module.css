@@ -18,7 +18,7 @@
 }
 
 :global(body.dark-mode) .container {
-  background-color: black;
+  background-color: var(--dark-navy);
   background-image: url("./assets/pattern-background-mobile-dark.svg");
 }
 

@@ -1,9 +1,9 @@
-import SelectionButton from "../../SelectionButton/SelectionButton";
 import styles from "./HomeScreen.module.css";
-import htmlIcon from "../../../assets/icon-html.svg";
-import cssIcon from "../../../assets/icon-css.svg";
-import jsIcon from "../../../assets/icon-js.svg";
-import accIcon from "../../../assets/icon-accessibility.svg";
+import htmlIcon from "../../assets/icon-html.svg";
+import cssIcon from "../../assets/icon-css.svg";
+import jsIcon from "../../assets/icon-js.svg";
+import accIcon from "../../assets/icon-accessibility.svg";
+import SelectionButton from "../SelectionButton/SelectionButton";
 
 const HomeScreen = () => {
   return (

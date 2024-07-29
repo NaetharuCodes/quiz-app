@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import styles from "./App.module.css";
 import Header from "./components/Header/Header";
 import { useTheme } from "./contexts/ThemeContext";
-import HomeScreen from "./components/Header/HomeScreen/HomeScreen";
+import HomeScreen from "./components/HomeScreen/HomeScreen";
 
 const App = () => {
   const { darkMode } = useTheme();

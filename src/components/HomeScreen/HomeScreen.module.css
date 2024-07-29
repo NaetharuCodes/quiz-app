@@ -4,6 +4,10 @@
   margin-bottom: 8px;
 }
 
+:global(body.dark-mode) .title {
+  color: white;
+}
+
 .title span {
   font-weight: 500;
 }
@@ -13,6 +17,10 @@
   font-size: 14px;
   font-style: italic;
   color: var(--grey-navy);
+}
+
+:global(body.dark-mode) .subtitle {
+  color: var(--blue);
 }
 
 .buttonContainer {
