@@ -30,6 +30,10 @@
     background-size: 50% auto;
   }
 
+  .contentContainer {
+    margin-top: 64px;
+  }
+
   :global(body.dark-mode) .container {
     padding-left: 64px;
     padding-right: 64px;
@@ -44,6 +48,10 @@
     padding-right: 140px;
     background-image: url("./assets//pattern-background-desktop-light.svg");
     background-size: 100% 100%;
+  }
+
+  .contentContainer {
+    margin-top: 82px;
   }
 
   :global(body.dark-mode) .container {

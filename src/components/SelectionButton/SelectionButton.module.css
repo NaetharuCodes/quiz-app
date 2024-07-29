@@ -23,3 +23,23 @@
   margin-right: 16px;
   border-radius: 6px;
 }
+
+@media only screen and (min-width: 768px) {
+  .button {
+    margin-bottom: 24px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .button {
+    padding: 28px;
+    font-size: 28px;
+    margin-bottom: 28px;
+  }
+
+  .imgContainer {
+    height: 56px;
+    width: 56px;
+    margin-right: 32px;
+  }
+}

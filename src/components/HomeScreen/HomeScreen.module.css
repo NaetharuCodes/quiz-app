@@ -1,11 +1,23 @@
+.container {
+  display: block;
+}
+
 .title {
   font-size: 40px;
   font-weight: 300;
-  margin-bottom: 8px;
+  margin-bottom: 16px;
 }
 
-:global(body.dark-mode) .title {
-  color: white;
+.titleContainer {
+  margin-bottom: 40px;
+}
+
+.titleContainer h1 {
+  display: block;
+}
+
+.titleContainer span {
+  display: block;
 }
 
 .title span {
@@ -14,7 +26,7 @@
 
 .subtitle {
   font-weight: 400;
-  font-size: 14px;
+  font-size: 12px;
   font-style: italic;
   color: var(--grey-navy);
 }
@@ -26,5 +38,37 @@
 .buttonContainer {
   display: flex;
   flex-direction: column;
-  margin-top: 40px;
+}
+
+@media only screen and (min-width: 768px) {
+  .title {
+    font-size: 64px;
+  }
+
+  .titleContainer {
+    margin-bottom: 64px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 50%;
+  }
+
+  .title {
+    font-size: 64px;
+  }
+
+  .titleContainer h1 {
+    display: block;
+  }
+
+  .titleContainer span {
+    display: block;
+  }
+
+  .subtitle {
+    font-size: 20px;
+  }
 }
