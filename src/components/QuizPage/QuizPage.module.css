@@ -1,0 +1,35 @@
+.container {
+  margin-top: 32px;
+}
+
+.questionProgress {
+  color: var(--grey-navy);
+  font-style: italic;
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+.questionText {
+  font-size: 20px;
+  color: var(--dark-navy);
+  line-height: 120%;
+  font-weight: medium;
+  margin-bottom: 24px;
+}
+
+.progressBar {
+  background-color: white;
+  height: 16px;
+  border-radius: 50px;
+  margin-bottom: 40px;
+  position: relative;
+  padding: 4px;
+  box-sizing: border-box;
+}
+
+.progressBarInner {
+  background-color: var(--purple);
+  height: 100%;
+  border-radius: 50px;
+  transition: width 0.3s ease;
+}

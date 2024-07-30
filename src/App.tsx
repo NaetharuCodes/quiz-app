@@ -4,6 +4,7 @@ import Header from "./components/Header/Header";
 import { useTheme } from "./contexts/ThemeContext";
 import HomeScreen from "./components/HomeScreen/HomeScreen";
 import data from "./data/data.json";
+import QuizPage from "./components/QuizPage/QuizPage";
 
 export enum Quiz {
   HTML = "HTML",
@@ -33,7 +34,11 @@ const App = () => {
     <div className={styles.container}>
       <Header activeQuiz={activeQuiz} />
       <div className={styles.contentContainer}>
-        <HomeScreen setActiveQuiz={setActiveQuiz} />
+        {activeQuiz ? (
+          <QuizPage />
+        ) : (
+          <HomeScreen setActiveQuiz={setActiveQuiz} />
+        )}
       </div>
     </div>
   );
