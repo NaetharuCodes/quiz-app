@@ -24,8 +24,9 @@ const QuizPage = ({ data }: QuizPageProps) => {
   };
 
   const nextQuestion = () => {
-    if (questionNumber < data.questions.length)
+    if (questionNumber < data.questions.length - 1) {
       setQuestionNumber(questionNumber + 1);
+    }
   };
 
   if (!data || data == undefined) return null;
