@@ -10,7 +10,7 @@ export enum Quiz {
   HTML = "HTML",
   CSS = "CSS",
   JS = "Javascript",
-  ACC = "Accessability",
+  ACC = "Accessibility",
 }
 
 const App = () => {

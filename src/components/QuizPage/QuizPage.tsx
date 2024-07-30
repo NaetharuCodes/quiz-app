@@ -16,12 +16,8 @@ interface QuizPageProps {
 const QuizPage = ({ data }: QuizPageProps) => {
   const [questionNumber, setQuestionNumber] = useState<number>(0);
   const [answer, setAnswer] = useState<Answer | null>();
-  let completedQuestions = 2;
-  let totalQuestions = 10;
 
-  console.log("data is...", data?.questions[questionNumber].question);
-
-  const progress = (completedQuestions / totalQuestions) * 100;
+  const progress = ((questionNumber + 1) / 10) * 100;
 
   const handleSetAnswer = (e: Answer) => {
     setAnswer(e);
@@ -79,7 +75,7 @@ const QuizPage = ({ data }: QuizPageProps) => {
           textColor="#f4f6fa"
           iconColor="transparent"
           active={false}
-          onClick={() => {}}
+          onClick={nextQuestion}
         />
       </div>
     </div>
