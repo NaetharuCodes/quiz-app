@@ -7,6 +7,9 @@ interface SelectionButtonProps {
   text: string;
   onClick: () => void;
   active: boolean;
+  textOnly?: boolean;
+  buttonColor?: string;
+  textColor?: string;
 }
 
 const SelectionButton = ({
@@ -16,20 +19,32 @@ const SelectionButton = ({
   text,
   onClick,
   active,
+  textOnly,
+  buttonColor,
+  textColor,
 }: SelectionButtonProps) => {
   return (
     <button
-      className={`flex-row items-center justify-start ${styles.button} ${
-        active ? styles.activeBtn : ""
-      }`}
+      className={`flex-row items-center ${
+        textOnly ? "justify-center" : "justify-start"
+      } ${styles.button} ${active && styles.activeBtn}`}
+      style={{
+        backgroundColor: buttonColor && buttonColor,
+        color: textColor && textColor,
+      }}
       onClick={onClick}
     >
-      <div
-        className={styles.imgContainer}
-        style={{ backgroundColor: iconColor ? iconColor : "" }}
-      >
-        {iconText ? iconText : <img src={icon} alt="button icon" />}
-      </div>
+      {!textOnly && (
+        <div
+          className={styles.imgContainer}
+          style={{
+            backgroundColor: iconColor ? iconColor : "",
+            justifyContent: textOnly ? "center" : "",
+          }}
+        >
+          {iconText ? iconText : <img src={icon} alt="" />}
+        </div>
+      )}
       {text}
     </button>
   );

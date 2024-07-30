@@ -58,7 +58,16 @@ const QuizPage = () => {
           active={answer == Answer.D}
           onClick={() => handleSetAnswer(Answer.D)}
         />
-        <button className={styles.submitButton}>Submit Answer</button>
+        <SelectionButton
+          icon=""
+          text="Button"
+          textOnly
+          buttonColor="#a729f5"
+          textColor="#f4f6fa"
+          iconColor="transparent"
+          active={false}
+          onClick={() => {}}
+        />
       </div>
     </div>
   );
