@@ -4,8 +4,13 @@ import cssIcon from "../../assets/icon-css.svg";
 import jsIcon from "../../assets/icon-js.svg";
 import accIcon from "../../assets/icon-accessibility.svg";
 import SelectionButton from "../SelectionButton/SelectionButton";
+import { Quiz } from "../../App";
 
-const HomeScreen = () => {
+interface HomeScreenProps {
+  setActiveQuiz: (quiz: Quiz) => void;
+}
+
+const HomeScreen = ({ setActiveQuiz }: HomeScreenProps) => {
   return (
     <div className={styles.container}>
       <div className={styles.titleContainer}>
@@ -21,25 +26,25 @@ const HomeScreen = () => {
           icon={htmlIcon}
           iconColor="#FFF1E9"
           text="HTML"
-          onClick={() => {}}
+          onClick={() => setActiveQuiz(Quiz.HTML)}
         />
         <SelectionButton
           icon={cssIcon}
           iconColor="#E0FDEF"
           text="CSS"
-          onClick={() => {}}
+          onClick={() => setActiveQuiz(Quiz.CSS)}
         />
         <SelectionButton
           icon={jsIcon}
           iconColor="#EBF0FF"
           text="Javascript"
-          onClick={() => {}}
+          onClick={() => setActiveQuiz(Quiz.JS)}
         />
         <SelectionButton
           icon={accIcon}
           iconColor="#F6E7FF"
           text="Accessibility"
-          onClick={() => {}}
+          onClick={() => setActiveQuiz(Quiz.ACC)}
         />
       </div>
     </div>
