@@ -16,13 +16,10 @@ export enum Quiz {
 const App = () => {
   const { darkMode } = useTheme();
   const quizData: any = data.quizzes;
-  console.log(quizData);
-
   const [activeQuiz, setActiveQuiz] = useState<Quiz | null>(null);
+  const [activeQuizData, setActiveQuizData] = useState<any>("");
 
   useEffect(() => {
-    console.log(darkMode);
-
     if (darkMode) {
       document.body.classList.add("dark-mode");
     } else {
@@ -30,12 +27,18 @@ const App = () => {
     }
   }, [darkMode]);
 
+  useEffect(() => {
+    const matchingQuiz = quizData.find((obj: any) => obj.title === activeQuiz);
+    setActiveQuizData(matchingQuiz);
+    console.log(activeQuiz);
+  }, [activeQuiz]);
+
   return (
     <div className={styles.container}>
       <Header activeQuiz={activeQuiz} />
       <div className={styles.contentContainer}>
         {activeQuiz ? (
-          <QuizPage />
+          <QuizPage data={activeQuizData} />
         ) : (
           <HomeScreen setActiveQuiz={setActiveQuiz} />
         )}
