@@ -4,24 +4,22 @@ import Header from "./components/Header/Header";
 import { useTheme } from "./contexts/ThemeContext";
 import HomeScreen from "./components/HomeScreen/HomeScreen";
 import data from "./data/data.json";
+import QuizPage from "./components/QuizPage/QuizPage";
 
 export enum Quiz {
   HTML = "HTML",
   CSS = "CSS",
   JS = "Javascript",
-  ACC = "Accessability",
+  ACC = "Accessibility",
 }
 
 const App = () => {
   const { darkMode } = useTheme();
   const quizData: any = data.quizzes;
-  console.log(quizData);
-
   const [activeQuiz, setActiveQuiz] = useState<Quiz | null>(null);
+  const [activeQuizData, setActiveQuizData] = useState<any>("");
 
   useEffect(() => {
-    console.log(darkMode);
-
     if (darkMode) {
       document.body.classList.add("dark-mode");
     } else {
@@ -29,11 +27,21 @@ const App = () => {
     }
   }, [darkMode]);
 
+  useEffect(() => {
+    const matchingQuiz = quizData.find((obj: any) => obj.title === activeQuiz);
+    setActiveQuizData(matchingQuiz);
+    console.log(activeQuiz);
+  }, [activeQuiz]);
+
   return (
     <div className={styles.container}>
       <Header activeQuiz={activeQuiz} />
       <div className={styles.contentContainer}>
-        <HomeScreen setActiveQuiz={setActiveQuiz} />
+        {activeQuiz ? (
+          <QuizPage data={activeQuizData} />
+        ) : (
+          <HomeScreen setActiveQuiz={setActiveQuiz} />
+        )}
       </div>
     </div>
   );

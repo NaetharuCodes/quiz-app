@@ -6,8 +6,15 @@
   background: var(--white);
   font-size: 18px;
   color: var(--dark-navy);
-  font-weight: 500;
+  font-weight: medium;
   cursor: pointer;
+  box-sizing: border-box;
+  border: 3px solid transparent;
+  min-height: 70px;
+}
+
+.activeBtn {
+  border: 3px solid var(--purple);
 }
 
 :global(body.dark-mode) .button {
@@ -22,6 +29,23 @@
   display: flex;
   margin-right: 16px;
   border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--light-grey);
+}
+
+:global(body.dark-mode) .imgContainer {
+  color: var(--dark-navy);
+}
+
+.activeBtn .imgContainer {
+  background-color: var(--purple);
+}
+
+.imgContainer:active {
+  background-color: var(--purple);
 }
 
 @media only screen and (min-width: 768px) {
