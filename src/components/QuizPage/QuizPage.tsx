@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import SelectionButton from "../SelectionButton/SelectionButton";
 import styles from "./QuizPage.module.css";
 import CrossIcon from "../Icons/CrossIcon";
@@ -46,10 +46,6 @@ const QuizPage = ({ data }: QuizPageProps) => {
       setNoAnswer(true);
     }
   };
-
-  useEffect(() => {
-    console.log("score: ", score);
-  }, [score]);
 
   const nextQuestion = () => {
     if (questionNumber < data.questions.length - 1) {
