@@ -33,12 +33,16 @@ const App = () => {
     console.log(activeQuiz);
   }, [activeQuiz]);
 
+  const handleResetQuiz = () => {
+    setActiveQuiz(null);
+  };
+
   return (
     <div className={styles.container}>
       <Header activeQuiz={activeQuiz} />
       <div className={styles.contentContainer}>
         {activeQuiz ? (
-          <QuizPage data={activeQuizData} />
+          <QuizPage data={activeQuizData} resetQuiz={handleResetQuiz} />
         ) : (
           <HomeScreen setActiveQuiz={setActiveQuiz} />
         )}
