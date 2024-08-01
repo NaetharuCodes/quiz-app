@@ -62,6 +62,7 @@ const QuizPage = ({ data }: QuizPageProps) => {
       </div>
       <div className={styles.buttonContainer}>
         <SelectionButton
+          disabled={hasAnswered}
           iconText="A"
           text={data.questions[questionNumber].options[0]}
           active={answer == Answer.A}
@@ -84,6 +85,7 @@ const QuizPage = ({ data }: QuizPageProps) => {
           }
         />
         <SelectionButton
+          disabled={hasAnswered}
           iconText="B"
           text={data.questions[questionNumber].options[1]}
           active={answer == Answer.B}
@@ -106,6 +108,7 @@ const QuizPage = ({ data }: QuizPageProps) => {
           }
         />
         <SelectionButton
+          disabled={hasAnswered}
           iconText="C"
           text={data.questions[questionNumber].options[2]}
           active={answer == Answer.C}
@@ -128,6 +131,7 @@ const QuizPage = ({ data }: QuizPageProps) => {
           }
         />
         <SelectionButton
+          disabled={hasAnswered}
           iconText="D"
           text={data.questions[questionNumber].options[3]}
           active={answer == Answer.D}

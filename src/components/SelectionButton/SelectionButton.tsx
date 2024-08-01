@@ -12,6 +12,7 @@ interface SelectionButtonProps {
   textColor?: string;
   correct?: boolean;
   incorrect?: boolean;
+  disabled?: boolean;
 }
 
 const SelectionButton = ({
@@ -26,9 +27,11 @@ const SelectionButton = ({
   textColor,
   incorrect,
   correct,
+  disabled,
 }: SelectionButtonProps) => {
   return (
     <button
+      disabled={disabled}
       className={`flex-row items-center ${
         textOnly ? "justify-center" : "justify-start"
       } ${styles.button} ${active && styles.activeBtn} ${
