@@ -1,13 +1,13 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SelectionButton from "../SelectionButton/SelectionButton";
 import styles from "./QuizPage.module.css";
 import CrossIcon from "../Icons/CrossIcon";
 
 enum Answer {
-  A = "A",
-  B = "B",
-  C = "C",
-  D = "D",
+  A = "0",
+  B = "1",
+  C = "2",
+  D = "3",
 }
 
 interface QuizPageProps {
@@ -19,6 +19,8 @@ const QuizPage = ({ data }: QuizPageProps) => {
   const [answer, setAnswer] = useState<Answer | null>();
   const [hasAnswered, setHasAnswered] = useState<boolean>(false);
   const [noAnswer, setNoAnswer] = useState<boolean>(false);
+  const [score, setScore] = useState<number>(0);
+
   const progress = ((questionNumber + 1) / 10) * 100;
 
   const handleSetAnswer = (e: Answer) => {
@@ -27,14 +29,27 @@ const QuizPage = ({ data }: QuizPageProps) => {
 
   const handleSubmitAnswer = () => {
     if (answer) {
-      console.log("checking answer");
       setHasAnswered(true);
       setNoAnswer(false);
+
+      const submitted = data.questions[questionNumber].options[answer];
+      const actualAnswer = data.questions[questionNumber].answer;
+
+      console.log("Sub: ", submitted);
+      console.log("Act: ", actualAnswer);
+
+      if (submitted === actualAnswer) {
+        console.log("adding to the score");
+        setScore(score + 1);
+      }
     } else {
-      console.log("no answer set");
       setNoAnswer(true);
     }
   };
+
+  useEffect(() => {
+    console.log("score: ", score);
+  }, [score]);
 
   const nextQuestion = () => {
     if (questionNumber < data.questions.length - 1) {
