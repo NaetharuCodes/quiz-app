@@ -105,17 +105,21 @@ const QuizPage = ({ data, resetQuiz }: QuizPageProps) => {
         />
       ) : (
         <>
-          <p className={styles.questionProgress}>
-            Question {questionNumber + 1} of 10
-          </p>
-          <p className={styles.questionText}>
-            {data.questions[questionNumber].question}
-          </p>
-          <div className={styles.progressBar}>
-            <div
-              className={styles.progressBarInner}
-              style={{ width: `${progress}%` }}
-            ></div>
+          <div className={styles.headerContainer}>
+            <div>
+              <p className={styles.questionProgress}>
+                Question {questionNumber + 1} of 10
+              </p>
+              <p className={styles.questionText}>
+                {data.questions[questionNumber].question}
+              </p>
+            </div>
+            <div className={styles.progressBar}>
+              <div
+                className={styles.progressBarInner}
+                style={{ width: `${progress}%` }}
+              ></div>
+            </div>
           </div>
           <div className={styles.buttonContainer}>
             <SelectionButton
