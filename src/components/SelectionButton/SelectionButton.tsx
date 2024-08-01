@@ -10,6 +10,8 @@ interface SelectionButtonProps {
   textOnly?: boolean;
   buttonColor?: string;
   textColor?: string;
+  correct?: boolean;
+  incorrect?: boolean;
 }
 
 const SelectionButton = ({
@@ -22,12 +24,16 @@ const SelectionButton = ({
   textOnly,
   buttonColor,
   textColor,
+  incorrect,
+  correct,
 }: SelectionButtonProps) => {
   return (
     <button
       className={`flex-row items-center ${
         textOnly ? "justify-center" : "justify-start"
-      } ${styles.button} ${active && styles.activeBtn}`}
+      } ${styles.button} ${active && styles.activeBtn} ${
+        correct ? styles.correct : incorrect ? styles.false : ""
+      }`}
       style={{
         backgroundColor: buttonColor && buttonColor,
         color: textColor && textColor,

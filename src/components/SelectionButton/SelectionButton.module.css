@@ -17,6 +17,14 @@
   border: 3px solid var(--purple);
 }
 
+.correct {
+  border: 3px solid var(--green);
+}
+
+.false {
+  border: 3px solid var(--red);
+}
+
 :global(body.dark-mode) .button {
   background: var(--navy);
   color: var(--white);
@@ -34,6 +42,14 @@
   align-items: center;
   justify-content: center;
   background-color: var(--light-grey);
+}
+
+.button.correct .imgContainer {
+  background-color: var(--green);
+}
+
+.button.false .imgContainer {
+  background-color: var(--red);
 }
 
 :global(body.dark-mode) .imgContainer {
