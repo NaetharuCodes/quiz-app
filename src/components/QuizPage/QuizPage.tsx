@@ -10,10 +10,6 @@ enum Answer {
   D = "3",
 }
 
-interface QuizPageProps {
-  data: any;
-}
-
 interface EndQuizComponentProps {
   quizName: string;
   score: number;
@@ -50,13 +46,18 @@ const EndQuizComponent = ({
   );
 };
 
-const QuizPage = ({ data }: QuizPageProps) => {
+interface QuizPageProps {
+  data: any;
+  resetQuiz: () => void;
+}
+
+const QuizPage = ({ data, resetQuiz }: QuizPageProps) => {
   const [questionNumber, setQuestionNumber] = useState<number>(0);
   const [answer, setAnswer] = useState<Answer | null>();
   const [hasAnswered, setHasAnswered] = useState<boolean>(false);
   const [noAnswer, setNoAnswer] = useState<boolean>(false);
   const [score, setScore] = useState<number>(0);
-  const [end, setEnd] = useState(true);
+  const [end, setEnd] = useState(false);
 
   const progress = ((questionNumber + 1) / 10) * 100;
 
@@ -103,7 +104,7 @@ const QuizPage = ({ data }: QuizPageProps) => {
           quizName={data.title}
           score={score}
           numberOfQuestions={10}
-          reset={() => {}}
+          reset={resetQuiz}
         />
       ) : (
         <>
