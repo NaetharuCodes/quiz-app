@@ -1,6 +1,7 @@
 import { useState } from "react";
 import SelectionButton from "../SelectionButton/SelectionButton";
 import styles from "./QuizPage.module.css";
+import CrossIcon from "../Icons/CrossIcon";
 
 enum Answer {
   A = "A",
@@ -16,11 +17,23 @@ interface QuizPageProps {
 const QuizPage = ({ data }: QuizPageProps) => {
   const [questionNumber, setQuestionNumber] = useState<number>(0);
   const [answer, setAnswer] = useState<Answer | null>();
+  const [hasAnswered, setHasAnswered] = useState<boolean>(false);
+  const [noAnswer, setNoAnswer] = useState<boolean>(false);
 
   const progress = ((questionNumber + 1) / 10) * 100;
 
   const handleSetAnswer = (e: Answer) => {
     setAnswer(e);
+  };
+
+  const handleSubmitAnswer = () => {
+    if (answer) {
+      console.log("checking answer");
+      setNoAnswer(false);
+    } else {
+      console.log("no answer set");
+      setNoAnswer(true);
+    }
   };
 
   const nextQuestion = () => {
@@ -70,14 +83,22 @@ const QuizPage = ({ data }: QuizPageProps) => {
         />
         <SelectionButton
           icon=""
-          text="Button"
+          text={hasAnswered ? "Next Question" : "Submit Answer"}
           textOnly
           buttonColor="#a729f5"
           textColor="#f4f6fa"
           iconColor="transparent"
           active={false}
-          onClick={nextQuestion}
+          onClick={hasAnswered ? nextQuestion : handleSubmitAnswer}
         />
+        <div
+          className={`${styles.noAnswerAlert} ${
+            noAnswer ? styles.noAnswer : ""
+          }`}
+        >
+          <CrossIcon />
+          Please select an answer
+        </div>
       </div>
     </div>
   );
