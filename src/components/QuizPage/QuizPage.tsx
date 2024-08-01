@@ -58,8 +58,9 @@ const QuizPage = ({ data, resetQuiz }: QuizPageProps) => {
   const [noAnswer, setNoAnswer] = useState<boolean>(false);
   const [score, setScore] = useState<number>(0);
   const [end, setEnd] = useState(false);
+  const [prog, setProg] = useState(0);
 
-  const progress = ((questionNumber + 1) / 10) * 100;
+  const progress = (prog / 10) * 100;
 
   const handleSetAnswer = (e: Answer) => {
     setAnswer(e);
@@ -67,15 +68,11 @@ const QuizPage = ({ data, resetQuiz }: QuizPageProps) => {
 
   const handleSubmitAnswer = () => {
     if (answer) {
+      setProg(prog + 1);
       setHasAnswered(true);
       setNoAnswer(false);
-
       const submitted = data.questions[questionNumber].options[answer];
       const actualAnswer = data.questions[questionNumber].answer;
-
-      console.log("Sub: ", submitted);
-      console.log("Act: ", actualAnswer);
-
       if (submitted === actualAnswer) {
         console.log("adding to the score");
         setScore(score + 1);
@@ -215,7 +212,13 @@ const QuizPage = ({ data, resetQuiz }: QuizPageProps) => {
             />
             <SelectionButton
               icon=""
-              text={hasAnswered ? "Next Question" : "Submit Answer"}
+              text={
+                !hasAnswered
+                  ? "Submit Answer"
+                  : questionNumber === data.questions.length - 1
+                  ? "Complete Quiz"
+                  : "Next Question"
+              }
               textOnly
               buttonColor="#a729f5"
               textColor="#f4f6fa"
