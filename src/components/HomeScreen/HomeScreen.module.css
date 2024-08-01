@@ -31,6 +31,10 @@
   color: var(--grey-navy);
 }
 
+:global(body.dark-mode) .titleContainer {
+  color: var(--white);
+}
+
 :global(body.dark-mode) .subtitle {
   color: var(--blue);
 }

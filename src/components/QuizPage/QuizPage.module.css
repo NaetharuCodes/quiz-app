@@ -52,3 +52,49 @@
 .noAnswer {
   visibility: visible;
 }
+
+.title {
+  font-size: 40px;
+  font-weight: 300;
+  margin-bottom: 16px;
+}
+
+.titleContainer {
+  margin-bottom: 40px;
+}
+
+.titleContainer h1 {
+  display: block;
+}
+
+.titleContainer span {
+  display: block;
+}
+
+.title span {
+  font-weight: 500;
+}
+
+:global(body.dark-mode) .titleContainer {
+  color: var(--white);
+}
+
+.endQuizCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 32px;
+  background-color: var(--white);
+  margin-bottom: 12px;
+  border-radius: 12px;
+}
+
+.endScore {
+  font-size: 88px;
+}
+
+.endComponentContainer {
+  display: flex;
+  flex-direction: column;
+}

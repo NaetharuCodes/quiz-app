@@ -6,7 +6,7 @@ interface SelectionButtonProps {
   iconColor?: string;
   text: string;
   onClick: () => void;
-  active: boolean;
+  active?: boolean;
   textOnly?: boolean;
   buttonColor?: string;
   textColor?: string;
