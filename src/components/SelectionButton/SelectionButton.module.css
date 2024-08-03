@@ -11,6 +11,11 @@
   box-sizing: border-box;
   border: 3px solid transparent;
   min-height: 74px;
+  transition: 0.1s ease;
+}
+
+.button:hover {
+  opacity: 0.9;
 }
 
 .activeBtn {

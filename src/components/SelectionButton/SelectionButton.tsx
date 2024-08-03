@@ -9,6 +9,7 @@ interface SelectionButtonProps {
   active?: boolean;
   textOnly?: boolean;
   buttonColor?: string;
+  hoverColor?: string;
   textColor?: string;
   correct?: boolean;
   incorrect?: boolean;
