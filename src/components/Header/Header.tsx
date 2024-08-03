@@ -52,6 +52,7 @@ const Header = ({ activeQuiz, reset }: HeaderProps) => {
         role="button"
         onClick={reset}
         className="flex-row items-center justify-start"
+        aria-label="Reset"
       >
         <div className={styles.iconContainer} style={{ background: iconColor }}>
           <img className={styles.accessabilityIcon} src={quizIcon} alt="" />
