@@ -30,18 +30,20 @@ const EndQuizComponent = ({
           Quiz Completed <span>You scored...</span>
         </h1>
       </div>
-      <div className={styles.endQuizCard}>
-        <p>{quizName}</p>
-        <p className={styles.endScore}>{score}</p>
-        <p>out of {numberOfQuestions}</p>
+      <div className={styles.statsContainer}>
+        <div className={styles.endQuizCard}>
+          <p>{quizName}</p>
+          <p className={styles.endScore}>{score}</p>
+          <p>out of {numberOfQuestions}</p>
+        </div>
+        <SelectionButton
+          textOnly
+          text="Play Again"
+          onClick={reset}
+          buttonColor="#a729f5"
+          textColor="#fff"
+        />
       </div>
-      <SelectionButton
-        textOnly
-        text="Play Again"
-        onClick={reset}
-        buttonColor="#a729f5"
-        textColor="#fff"
-      />
     </div>
   );
 };
@@ -95,7 +97,7 @@ const QuizPage = ({ data, resetQuiz }: QuizPageProps) => {
   if (!data || data == undefined) return null;
 
   return (
-    <div className={styles.container}>
+    <div>
       {end ? (
         <EndQuizComponent
           quizName={data.title}
@@ -104,147 +106,147 @@ const QuizPage = ({ data, resetQuiz }: QuizPageProps) => {
           reset={resetQuiz}
         />
       ) : (
-        <>
-          <div className={styles.headerContainer}>
-            <div>
-              <p className={styles.questionProgress}>
-                Question {questionNumber + 1} of 10
-              </p>
-              <p className={styles.questionText}>
-                {data.questions[questionNumber].question}
-              </p>
+        <div className={styles.container}>
+          <>
+            <div className={styles.headerContainer}>
+              <div>
+                <p className={styles.questionProgress}>
+                  Question {questionNumber + 1} of 10
+                </p>
+                <p className={styles.questionText}>
+                  {data.questions[questionNumber].question}
+                </p>
+              </div>
+              <div className={styles.progressBar}>
+                <div
+                  className={styles.progressBarInner}
+                  style={{ width: `${progress}%` }}
+                ></div>
+              </div>
             </div>
-            <div className={styles.progressBar}>
+            <div className={styles.buttonContainer}>
+              <SelectionButton
+                disabled={hasAnswered}
+                iconText="A"
+                text={data.questions[questionNumber].options[0]}
+                active={answer == Answer.A}
+                onClick={() => handleSetAnswer(Answer.A)}
+                correct={
+                  hasAnswered &&
+                  answer === Answer.A &&
+                  data.questions[questionNumber].options[0] ==
+                    data.questions[questionNumber].answer
+                    ? true
+                    : false
+                }
+                incorrect={
+                  hasAnswered &&
+                  answer === Answer.A &&
+                  data.questions[questionNumber].options[0] !=
+                    data.questions[questionNumber].answer
+                    ? true
+                    : false
+                }
+              />
+              <SelectionButton
+                disabled={hasAnswered}
+                iconText="B"
+                text={data.questions[questionNumber].options[1]}
+                active={answer == Answer.B}
+                onClick={() => handleSetAnswer(Answer.B)}
+                correct={
+                  hasAnswered &&
+                  answer === Answer.B &&
+                  data.questions[questionNumber].options[1] ==
+                    data.questions[questionNumber].answer
+                    ? true
+                    : false
+                }
+                incorrect={
+                  hasAnswered &&
+                  answer === Answer.B &&
+                  data.questions[questionNumber].options[1] !=
+                    data.questions[questionNumber].answer
+                    ? true
+                    : false
+                }
+              />
+              <SelectionButton
+                disabled={hasAnswered}
+                iconText="C"
+                text={data.questions[questionNumber].options[2]}
+                active={answer == Answer.C}
+                onClick={() => handleSetAnswer(Answer.C)}
+                correct={
+                  hasAnswered &&
+                  answer === Answer.C &&
+                  data.questions[questionNumber].options[2] ==
+                    data.questions[questionNumber].answer
+                    ? true
+                    : false
+                }
+                incorrect={
+                  hasAnswered &&
+                  answer === Answer.C &&
+                  data.questions[questionNumber].options[2] !=
+                    data.questions[questionNumber].answer
+                    ? true
+                    : false
+                }
+              />
+              <SelectionButton
+                disabled={hasAnswered}
+                iconText="D"
+                text={data.questions[questionNumber].options[3]}
+                active={answer == Answer.D}
+                onClick={() => handleSetAnswer(Answer.D)}
+                correct={
+                  hasAnswered &&
+                  answer === Answer.C &&
+                  data.questions[questionNumber].options[3] ==
+                    data.questions[questionNumber].answer
+                    ? true
+                    : false
+                }
+                incorrect={
+                  hasAnswered &&
+                  answer === Answer.D &&
+                  data.questions[questionNumber].options[3] !=
+                    data.questions[questionNumber].answer
+                    ? true
+                    : false
+                }
+              />
+              <SelectionButton
+                icon=""
+                text={
+                  !hasAnswered
+                    ? "Submit Answer"
+                    : questionNumber === data.questions.length - 1
+                    ? "Complete Quiz"
+                    : "Next Question"
+                }
+                textOnly
+                buttonColor="#a729f5"
+                textColor="#f4f6fa"
+                iconColor="transparent"
+                active={false}
+                onClick={hasAnswered ? nextQuestion : handleSubmitAnswer}
+              />
               <div
-                className={styles.progressBarInner}
-                style={{ width: `${progress}%` }}
-              ></div>
+                className={`${styles.noAnswerAlert} ${
+                  noAnswer ? styles.noAnswer : ""
+                }`}
+              >
+                <CrossIcon />
+                Please select an answer
+              </div>
             </div>
-          </div>
-          <div className={styles.buttonContainer}>
-            <SelectionButton
-              disabled={hasAnswered}
-              iconText="A"
-              text={data.questions[questionNumber].options[0]}
-              active={answer == Answer.A}
-              onClick={() => handleSetAnswer(Answer.A)}
-              correct={
-                hasAnswered &&
-                answer === Answer.A &&
-                data.questions[questionNumber].options[0] ==
-                  data.questions[questionNumber].answer
-                  ? true
-                  : false
-              }
-              incorrect={
-                hasAnswered &&
-                answer === Answer.A &&
-                data.questions[questionNumber].options[0] !=
-                  data.questions[questionNumber].answer
-                  ? true
-                  : false
-              }
-            />
-            <SelectionButton
-              disabled={hasAnswered}
-              iconText="B"
-              text={data.questions[questionNumber].options[1]}
-              active={answer == Answer.B}
-              onClick={() => handleSetAnswer(Answer.B)}
-              correct={
-                hasAnswered &&
-                answer === Answer.B &&
-                data.questions[questionNumber].options[1] ==
-                  data.questions[questionNumber].answer
-                  ? true
-                  : false
-              }
-              incorrect={
-                hasAnswered &&
-                answer === Answer.B &&
-                data.questions[questionNumber].options[1] !=
-                  data.questions[questionNumber].answer
-                  ? true
-                  : false
-              }
-            />
-            <SelectionButton
-              disabled={hasAnswered}
-              iconText="C"
-              text={data.questions[questionNumber].options[2]}
-              active={answer == Answer.C}
-              onClick={() => handleSetAnswer(Answer.C)}
-              correct={
-                hasAnswered &&
-                answer === Answer.C &&
-                data.questions[questionNumber].options[2] ==
-                  data.questions[questionNumber].answer
-                  ? true
-                  : false
-              }
-              incorrect={
-                hasAnswered &&
-                answer === Answer.C &&
-                data.questions[questionNumber].options[2] !=
-                  data.questions[questionNumber].answer
-                  ? true
-                  : false
-              }
-            />
-            <SelectionButton
-              disabled={hasAnswered}
-              iconText="D"
-              text={data.questions[questionNumber].options[3]}
-              active={answer == Answer.D}
-              onClick={() => handleSetAnswer(Answer.D)}
-              correct={
-                hasAnswered &&
-                answer === Answer.C &&
-                data.questions[questionNumber].options[3] ==
-                  data.questions[questionNumber].answer
-                  ? true
-                  : false
-              }
-              incorrect={
-                hasAnswered &&
-                answer === Answer.D &&
-                data.questions[questionNumber].options[3] !=
-                  data.questions[questionNumber].answer
-                  ? true
-                  : false
-              }
-            />
-            <SelectionButton
-              icon=""
-              text={
-                !hasAnswered
-                  ? "Submit Answer"
-                  : questionNumber === data.questions.length - 1
-                  ? "Complete Quiz"
-                  : "Next Question"
-              }
-              textOnly
-              buttonColor="#a729f5"
-              textColor="#f4f6fa"
-              iconColor="transparent"
-              active={false}
-              onClick={hasAnswered ? nextQuestion : handleSubmitAnswer}
-            />
-            <div
-              className={`${styles.noAnswerAlert} ${
-                noAnswer ? styles.noAnswer : ""
-              }`}
-            >
-              <CrossIcon />
-              Please select an answer
-            </div>
-          </div>
-        </>
+          </>
+        </div>
       )}
     </div>
   );
 };
 
 export default QuizPage;
-
-// If chosen answer = answer, then highlight that button green
