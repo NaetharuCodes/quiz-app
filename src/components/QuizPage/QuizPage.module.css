@@ -2,6 +2,13 @@
   margin-top: 32px;
 }
 
+.headerContainer {
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 .questionProgress {
   color: var(--grey-navy);
   font-style: italic;
@@ -79,6 +86,10 @@
   color: var(--white);
 }
 
+:global(body.dark-mode) .questionText {
+  color: var(--white);
+}
+
 .endQuizCard {
   display: flex;
   flex-direction: column;
@@ -97,4 +108,66 @@
 .endComponentContainer {
   display: flex;
   flex-direction: column;
+}
+
+@media only screen and (min-width: 768px) {
+  .questionText {
+    margin-bottom: 40px;
+  }
+
+  .questionProgress {
+    font-size: 20px;
+    line-height: 150%;
+  }
+
+  .progressBar {
+    margin-bottom: 64px;
+  }
+
+  .headerContainer {
+    min-height: 260px;
+  }
+
+  .endQuizCard {
+    padding: 100px;
+    margin-bottom: 32px;
+  }
+
+  .endScore {
+    font-size: 140px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .questionText {
+    font-size: 30px;
+    line-height: 120%;
+  }
+
+  .headerContainer {
+    margin-right: 200px;
+    height: 452px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    max-width: 600px;
+  }
+
+  .endComponentContainer {
+    width: 100%;
+    gap: 200px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /* margin-top: 84px; */
+  }
+
+  .statsContainer {
+    display: flex;
+    flex-direction: column;
+  }
 }
