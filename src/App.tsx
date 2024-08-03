@@ -39,7 +39,7 @@ const App = () => {
 
   return (
     <div className={styles.container}>
-      <Header activeQuiz={activeQuiz} />
+      <Header activeQuiz={activeQuiz} reset={handleResetQuiz} />
       <div className={styles.contentContainer}>
         {activeQuiz ? (
           <QuizPage data={activeQuizData} resetQuiz={handleResetQuiz} />

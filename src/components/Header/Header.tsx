@@ -16,9 +16,10 @@ import darkMoon from "../../assets/icon-moon-light.svg";
 
 interface HeaderProps {
   activeQuiz: Quiz | null;
+  reset: () => void;
 }
 
-const Header = ({ activeQuiz }: HeaderProps) => {
+const Header = ({ activeQuiz, reset }: HeaderProps) => {
   const { darkMode, toggleDarkMode } = useTheme();
 
   const quizIcon =
@@ -47,7 +48,11 @@ const Header = ({ activeQuiz }: HeaderProps) => {
     <div
       className={`flex-row justify-between items-center ${styles.container}`}
     >
-      <div className="flex-row items-center justify-start">
+      <div
+        role="button"
+        onClick={reset}
+        className="flex-row items-center justify-start"
+      >
         <div className={styles.iconContainer} style={{ background: iconColor }}>
           <img className={styles.accessabilityIcon} src={quizIcon} alt="" />
         </div>
